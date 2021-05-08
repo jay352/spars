@@ -1,12 +1,12 @@
 <?php
-session_start();
+ require 'athleteloginvalidation.php';
 
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+
 <html>
-<head>
-<title>SPARS</title>
- <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+
+      <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
       <!-- Twitter meta-->
       <meta property="twitter:card" content="summary_large_image">
       <meta property="twitter:site" content="@pratikborsadiya">
@@ -18,124 +18,69 @@ session_start();
       <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
       <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
       <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-      <title>Sport</title>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- Main CSS-->
-      <link rel="stylesheet" type="text/css" href="css1/main.css">
+      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link rel="stylesheet" type="text/css" href="css/main.css">
       <!-- Font-icon css-->
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script src="js/jquery.min.js"></script>
-<!--<script src="js/jquery.easydropdown.js"></script>-->
-<!--start slider -->
-<link rel="stylesheet" href="css/fwslider.css" media="all">
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/fwslider.js"></script>
-<!--end slider -->
-<script type="text/javascript">
-        $(document).ready(function() {
-            $(".dropdown img.flag").addClass("flagvisibility");
+       <meta charset="utf-8">
 
-            $(".dropdown dt a").click(function() {
-                $(".dropdown dd ul").toggle();
-            });
-                        
-            $(".dropdown dd ul li a").click(function() {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-                        
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
+    
 
-            $(document).bind('click', function(e) {
-                var $clicked = $(e.target);
-                if (! $clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
+   </head>
+   <body class="app sidebar-mini rtl">
+      <!-- Navbar-->
+      <header class="app-header" style="background-color: #66b2cc">
+         <a class="app-header__logo" href="index.php" style="background-color: #66b2cc; font-family: Georgia;">SPARS</a>
+         <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+         <!-- Navbar Right Menu-->
+         <ul class="app-nav">
+            <li class="app-search">
+               <input class="app-search__input" type="search" placeholder="Search">
+               <button class="app-search__button"><i class="fa fa-search"></i></button>
+            </li>
+            <!--Notification Menu-->
+            
+            <li class="dropdown">
+               <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+               <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                  <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i>Settings</a></li>
+                  <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i>Profile</a></li>
+                  <li><a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
+               </ul>
+            </li>
+         </ul>
+      </header>
+      <!-- Sidebar menu-->
+      <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+      <aside class="app-sidebar">
+         <div class="app-sidebar__user" >
+            <img class="app-sidebar__user-avatar" style="height: 40px" src="img/dp.jpg " alt="User Image">
+            <div>
+               <p class="app-sidebar__user-name">Dhrumil Parikh</p>
+               <p class="app-sidebar__user-designation">Athlete</p>
+            </div>
+         </div>
+         <ul class="app-menu">
+            <li><a class="app-menu__item active" href="index.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+            
+           
+             
+          
 
-
-            $("#flagSwitcher").click(function() {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
-        });
-     </script>
-</head>
-<body> 	
-	<div class="header" style="margin-bottom: 10;	">
-		<div class="container">
-			<div class="row">
-			  <div class="col-md-12">
-				 <div class="header-left">
-					 <div class="logo">
-						<a href="index.php"><img src="images/logo.png" alt=""/></a>
-					 </div>
-					 <div class="menu">
-						<!--   <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a> -->
-						    <ul class="nav" id="nav">
-					    	<li><a href="contactus.php">Contact us</a></li>
-						    	<li><a href="abtus.php">About Us</a></li>
-						    		<!-- <li><a href="reg_autho.php">Register Authority</a></li> -->
-						    	<li><a href="login.php">Login</a></li>
-
-
-								<div class="clear"></div>
-							</ul>
-							<script type="text/javascript" src="js/responsive-nav.js"></script>
-				    </div>							
-	    		    <div class="clear"></div>
-	    	    </div>
-	            <div class="header_right">
-	    		  <!-- start search-->
-				      <div class="search-box">
-							<div id="sb-search" class="sb-search">
-								<form>
-									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-									<input class="sb-search-submit" type="submit" value="">
-									<span class="sb-icon-search"> </span>
-								</form>
-							</div>
-						</div>
-						<!----search-scripts---->
-						<script src="js/classie.js"></script>
-						<script src="js/uisearch.js"></script>
-						<script>
-							new UISearch( document.getElementById( 'sb-search' ) );
-						</script>
-						<!----//search-scripts---->
-				    <ul class="icon1 sub-icon1 profile_img">
-					 <li><a class="active-icon c1" href="#"> </a>
-						<ul class="sub-icon1 list">
-						  <div class="product_control_buttons">
-						  	<a href="#"><img src="images/edit.png" alt=""/></a>
-						  		<a href="#"><img src="images/close_edit.png" alt=""/></a>
-						  </div>
-						   <div class="clear"></div>
-						  <li class="list_img"><img src="images/1.jpg" alt=""/></li>
-						  <li class="list_desc"><h4><a href="#">velit esse molestie</a></h4><span class="actual">1 x
-                          $12.00</span></li>
-						  <div class="login_buttons">
-							 <div class="check_button"><a href="checkout.html">Check out</a></div>
-							 <div class="login_button"><a href="login.html">Login</a></div>
-							 <div class="clear"></div>
-						  </div>
-						  <div class="clear"></div>
-						</ul>
-					 </li>
-				   </ul>
-		           <div class="clear"></div>
-	       </div>
-	      </div>
-		 </div>
-	    </div>
-	</div>
+    
+                  <li class="treeview">
+               <a class="app-menu__item" href="edit_profile.php" ></i><span class="app-menu__label">Edit Profile</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+              
+        
+             
+           
+            
+            
+         </ul>
+      </aside>
+      
+ 

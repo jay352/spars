@@ -2,18 +2,18 @@
 <html lang="en">
    <head>
     <title>Athlete</title>
+ 
+
+</head>
+
 <?php
-session_start();
- require 'lib/dao.php';
  include 'athleteloginvalidation.php';
+  require 'lib/dao.php';
   $d = new dao();
 include 'header.php';
 extract($_GET);
 
 ?>
-
-
-    
 
 <body style="background-color: #E5E5E5;">
       <main class="app-content"  style="width:=900px; ">
@@ -25,8 +25,6 @@ extract($_GET);
             <div class="tile-body">
       
                             <?php
-
-                            $id= $_SESSION['user_id'];
          $q = $d->select("user_master,city_master",
             "city_master.city_id= user_master.city_id  AND u_id='$id'");
           $q1 = $d->select("user_master,state_master",
@@ -63,14 +61,15 @@ extract($_GET);
                 <label class="btn btn-primary ">
                   <a href="crew.php?id=<?php echo $id;?>" style="color: white; text-decoration: none;"> Alloted Crew</a>
                 </label>
-                
+               
                 <label class="btn btn-primary">
              <a href="view_cmp.php?id=<?php echo $id;?>" style="color: white; text-decoration: none;"> Competition Records</a>
-
-                 </label>
-                   <label class="btn btn-primary">
-                  <a href="view_performance.php?id=<?php echo $id;?>" style="color: white; text-decoration: none;"> Performance Records</a>
                 </label>
+                   <label class="btn btn-primary">
+                  <a href="crew.php?" style="color: white; text-decoration: none;"> Tarining schedule</a>
+                </label>
+                 </label>
+                 
                 <label class="btn btn-primary">
                   <a href="view_diet.php?id=<?php echo $id;?>" style="color: white; text-decoration: none;">Diet-Plan</a>
                 </label>
